@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project.Service.Model.VehicleModel>
+
+@{
+    ViewData["Title"] = "Modeli vozila";
+}
+
+<h1>Modeli vozila</h1>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Abrv
+        </th>
+        <th>
+            Actions
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abrv)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = item.Id, makeid=item.MakeId }) |
+                @Html.ActionLink("Read", "Read", new { id = item.Id, makeid=item.MakeId  }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id, makeid=item.MakeId  })
+            </td>
+        </tr>
+
+    }
+
+</table>

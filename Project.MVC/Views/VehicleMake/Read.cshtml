@@ -1,0 +1,32 @@
+﻿@model Project.Service.Model.VehicleMake
+
+@{
+    ViewData["Title"] = "Detalji vrste vozila";
+}
+
+<h1>Detalji vrste vozila</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abrv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abrv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Update", "Update", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
