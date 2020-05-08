@@ -1,8 +1,41 @@
 ﻿@model Project.Service.Model.VehicleMake
 
 @{
-    ViewData["Title"] = "Kreiranje nove vrste vozila";
+    ViewData["Title"] = "Kreiranje vrste vozila";
 }
 
-    <h1>Kreiranje nove vrste vozila</h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h1>Kreiranje vrste vozila</h1>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.abrv, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.abrv)
+                @Html.ValidationMessageFor(model => model.abrv)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to VehicleMake list", "Index")
+</div>
+
 

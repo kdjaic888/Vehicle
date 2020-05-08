@@ -4,23 +4,31 @@ using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Project.Interface.Interface;
+using Microsoft.Extensions.Logging;
+using Project.Service.DataContext;
 
 namespace Project.Service.Model
 {
     public class VehicleModel:IVehicleModel
     {
-        [Key]
-        public int Id { get; set; }
+        private readonly ILogger<VehicleModel> _logger;
 
-        [ForeignKey("MakeId")]
-        public int MakeId { get; set; }
+        public VehicleModel(ILogger<VehicleModel> logger)
+        {
+            _logger = logger;
+        }
 
-        [Required(ErrorMessage = "Enter Name")]
-        [Display(Name = "Name")]
-        public string Name { get; set; }
+        public VehicleModel()
+        {
 
-        [Required(ErrorMessage = "Enter Abrv")]
-        [Display(Name = "Abrv")]
-        public string Abrv { get; set; }
+        }
+
+        public int id { get; set; }
+
+        public int makeId { get; set; }
+
+        public string name { get; set; }
+
+        public string abrv { get; set; }
     }
 }

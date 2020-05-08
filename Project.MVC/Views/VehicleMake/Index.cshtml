@@ -7,19 +7,24 @@
 <h1>Vrste vozila</h1>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 
 <table class="table">
     <tr>
         <th>
-            Name
+            @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            Abrv
-        </th>
-        <th>
-            Actions
+            @Html.DisplayNameFor(model => model.abrv)
         </th>
         <th></th>
     </tr>
@@ -28,17 +33,18 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Abrv)
+                @Html.DisplayFor(modelItem => item.abrv)
             </td>
             <td>
-                @Html.ActionLink("Update", "Update", new { id = item.Id}) |
-                @Html.ActionLink("Read", "Read", new { id = item.Id}) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id})
+                @Html.ActionLink("Details", "Details", new { Id = item.id }) |
+                @Html.ActionLink("Update", "Update", new { Id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = item.id })
             </td>
         </tr>
-
     }
 </table>
+<br />
+

@@ -1,0 +1,35 @@
+﻿@model Project.Service.Model.VehicleModel
+
+@{
+    ViewData["Title"] = "Detalji modela vozila";
+}
+
+<div>
+    <h1>Detalji modela vozila</h1>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.makeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.makeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.abrv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.abrv)
+        </dd>
+    </dl>
+    }
+</div>
+<p>
+    @Html.ActionLink("Update", "Update", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

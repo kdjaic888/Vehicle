@@ -6,12 +6,12 @@ namespace Project.Interface.Interface
 {
     public interface IVehicleModel
     {
-        int Id { get; set; }
+        int id { get; set; }
 
-        int MakeId { get; set; }
+        int makeId { get; set; }
 
-        string Name { get; set; }
+        string name { get; set; }
 
-        string Abrv { get; set; }
+        string abrv { get; set; }
     }
 }

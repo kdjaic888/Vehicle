@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Project.MVC.Migrations
+namespace Project.Service.Migrations
 {
     public partial class First : Migration
     {
@@ -10,28 +10,28 @@ namespace Project.MVC.Migrations
                 name: "VehicleMake",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Abrv = table.Column<string>(nullable: false)
+                    name = table.Column<string>(nullable: false),
+                    abrv = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VehicleMake", x => x.Id);
+                    table.PrimaryKey("PK_VehicleMake", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "VehicleModel",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
-                    MakeId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    Abrv = table.Column<string>(nullable: false)
+                    id = table.Column<int>(nullable: false),
+                    makeId = table.Column<int>(nullable: false),
+                    name = table.Column<string>(nullable: false),
+                    abrv = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VehicleModel", x => new { x.Id, x.MakeId });
+                    table.PrimaryKey("PK_VehicleModel", x => new { x.id, x.makeId });
                 });
         }
 

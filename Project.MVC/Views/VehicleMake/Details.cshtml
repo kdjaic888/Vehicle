@@ -4,29 +4,26 @@
     ViewData["Title"] = "Detalji vrste vozila";
 }
 
-<h1>Detalji vrste vozila</h1>
-
 <div>
+    <h1>Detalji vrste vozila</h1>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.name)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Abrv)
+            @Html.DisplayNameFor(model => model.abrv)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Abrv)
+            @Html.DisplayFor(model => model.abrv)
         </dd>
-
     </dl>
+    }
 </div>
 <p>
-    @Html.ActionLink("Update", "Update", new { id = Model.Id }) |
+    @Html.ActionLink("Update", "Update", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

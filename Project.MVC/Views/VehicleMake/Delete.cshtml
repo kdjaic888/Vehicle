@@ -4,31 +4,30 @@
     ViewData["Title"] = "Brisanje vrste vozila";
 }
 
-<h1>Brisanje vrste vozila</h1>
-
 <h3>Jeste li sigurni da zelite obrisati ovu vrstu vozila?</h3>
-
 <div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Abrv)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Abrv)
-        </dd>
-    </dl>
-
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-primary" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    @using (Html.BeginForm("Delete", "VehicleMake", FormMethod.Post))
+    {
+        @Html.HiddenFor(e => e.id)
+        <h4>Brisanje vrste vozila</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.abrv)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.abrv)
+            </dd>
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to VehicleMake List", "Index")
+        </div>
+    }
 </div>
-

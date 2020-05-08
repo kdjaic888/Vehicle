@@ -10,6 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project.Service.DataContext;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Project.Service.Model;
+using Project.Interface.Interface;
+using AutoMapper;
 
 namespace Project.MVC
 {
@@ -22,12 +27,28 @@ namespace Project.MVC
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+           
+
             services.AddDbContext<EFDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddOptions();
+            var builder = new ContainerBuilder();
+
+            builder.RegisterModule(new AutofacModule());
+
+            //builder.Populate(services);
+
+            var container = builder.Build();
+
+            // Create the IServiceProvider based on the container.
+
+            //return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +78,14 @@ namespace Project.MVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                
             });
+
+
         }
+
+        public void ConfigureContainer(Autofac.ContainerBuilder builder)
+        {
+            builder.RegisterModule<AutofacModule>();
+        }
+
     }
 }

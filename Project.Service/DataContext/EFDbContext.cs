@@ -8,6 +8,7 @@ namespace Project.Service.DataContext
 {
     public class EFDbContext : DbContext
     {
+        const string connectionString = "Data Source=DESKTOP-70657L1/SQLEXPRESS;Initial Catalog=vehicleproject;Integrated Security=True;";
         public EFDbContext()
         {
         }
@@ -23,8 +24,13 @@ namespace Project.Service.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-70657L1\SQLEXPRESS;Initial Catalog=vehicleproject;Integrated Security=True;");
+            optionsBuilder.UseSqlServer(connectionString);
         }
+
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-70657L1\SQLEXPRESS;Initial Catalog=vehicleproject;Integrated Security=True;");
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,9 +38,10 @@ namespace Project.Service.DataContext
             modelBuilder.Entity<VehicleModel>().ToTable("VehicleModel");
 
             modelBuilder.Entity<VehicleModel>()
-                .HasKey(c => new { c.Id, c.MakeId });
+                .HasKey(c => new { c.id, c.makeId });
             //base.OnModelCreating(modelBuilder);
         }
+
     }
 }
 

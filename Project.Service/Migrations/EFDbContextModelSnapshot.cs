@@ -2,17 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project.Service.DataContext;
 
-namespace Project.MVC.Migrations
+namespace Project.Service.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20200310124554_First")]
-    partial class First
+    partial class EFDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,41 +20,41 @@ namespace Project.MVC.Migrations
 
             modelBuilder.Entity("Project.Service.Model.VehicleMake", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Abrv")
+                    b.Property<string>("abrv")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("VehicleMake");
                 });
 
             modelBuilder.Entity("Project.Service.Model.VehicleModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
-                    b.Property<int>("MakeId")
+                    b.Property<int>("makeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Abrv")
+                    b.Property<string>("abrv")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id", "MakeId");
+                    b.HasKey("id", "makeId");
 
                     b.ToTable("VehicleModel");
                 });

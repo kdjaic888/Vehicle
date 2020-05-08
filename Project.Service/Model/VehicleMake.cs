@@ -3,20 +3,30 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 using Project.Interface.Interface;
+using Microsoft.Extensions.Logging;
+using Project.Service.DataContext;
 
 namespace Project.Service.Model
 {
     public class VehicleMake:IVehicleMake
     {
-        [Key]
-        public int Id { get; set; }
+        private readonly ILogger<VehicleMake> _logger;
 
-        [Required(ErrorMessage = "Enter Name")]
-        [Display(Name = "Name")]
-        public string Name { get; set; }
 
-        [Required(ErrorMessage = "Enter Abrv")]
-        [Display(Name = "Abrv")]
-        public string Abrv { get; set; }
+        public VehicleMake(ILogger<VehicleMake> logger)
+        {
+            _logger = logger;
+        }
+
+        public VehicleMake()
+        {
+           
+        }
+
+        public int id { get; set; }
+
+        public string name { get; set; }
+
+        public string abrv { get; set; }
     }
 }
