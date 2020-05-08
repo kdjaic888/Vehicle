@@ -23,6 +23,7 @@ namespace Project.Service.Model
             throw new NotImplementedException();
         }
 
+
         public static Task<IList<VehicleModel>> CreateAsync(IQueryable<VehicleModel> queryable, int v, int pageSize)
         {
             throw new NotImplementedException();
