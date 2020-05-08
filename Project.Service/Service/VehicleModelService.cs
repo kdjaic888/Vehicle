@@ -22,7 +22,6 @@ namespace Project.Service.Service
         public string currentFilter { get; set; }
         public string currentSort { get; set; }
 
-
         public VehicleModelService(EFDbContext vehicleModelContext, IMapper mapper)
         {
             this._context = vehicleModelContext;
