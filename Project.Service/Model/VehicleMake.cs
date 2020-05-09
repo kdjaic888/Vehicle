@@ -12,7 +12,6 @@ namespace Project.Service.Model
     {
         private readonly ILogger<VehicleMake> _logger;
 
-
         public VehicleMake(ILogger<VehicleMake> logger)
         {
             _logger = logger;

@@ -27,11 +27,6 @@ namespace Project.Service.DataContext
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-70657L1\SQLEXPRESS;Initial Catalog=vehicleproject;Integrated Security=True;");
-        }*/
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VehicleMake>().ToTable("VehicleMake");
